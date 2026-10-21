@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchAgent that keeps the onion Bridge running in the background through Tor.
+  Replace BRIDGE_PATH and LOG_PATH, save as ~/Library/LaunchAgents/proton-bridge-onion.plist,
+  then: launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/proton-bridge-onion.plist
+  Log in once with `bridge --cli` first; --noninteractive has no way to add an account.
+-->
+<plist version="1.0"><dict>
+  <key>Label</key><string>proton-bridge-onion</string>
+  <key>ProgramArguments</key><array>
+    <string>BRIDGE_PATH</string><string>--noninteractive</string>
+  </array>
+  <key>EnvironmentVariables</key><dict>
+    <key>HTTPS_PROXY</key><string>socks5://127.0.0.1:9050</string>
+    <key>HTTP_PROXY</key><string>socks5://127.0.0.1:9050</string>
+    <key>NO_PROXY</key><string>localhost,127.0.0.1</string>
+  </dict>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>LOG_PATH</string>
+  <key>StandardErrorPath</key><string>LOG_PATH</string>
+</dict></plist>

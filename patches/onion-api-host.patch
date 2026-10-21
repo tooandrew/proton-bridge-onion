@@ -1,0 +1,10 @@
+diff --git a/internal/constants/host_default.go b/internal/constants/host_default.go
+index 1a22f04..ae39f69 100644
+--- a/internal/constants/host_default.go
++++ b/internal/constants/host_default.go
+@@ -20,4 +20,4 @@
+ package constants
+ 
+ // APIHost is our API address.
+-const APIHost = "https://mail-api.proton.me"
++const APIHost = "https://mail.protonmailrmez3lotccipshtkleegetolb73fuirgj7r4o4vfu7ozyd.onion/api"

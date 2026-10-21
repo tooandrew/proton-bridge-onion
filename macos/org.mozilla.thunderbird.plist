@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Thunderbird enterprise policy: route all of Thunderbird's traffic through Tor
+  (SOCKS5 at 127.0.0.1:9050, DNS included), except local connections to Bridge.
+  Install: sudo defaults import /Library/Preferences/org.mozilla.thunderbird org.mozilla.thunderbird.plist
+-->
+<plist version="1.0"><dict>
+  <key>EnterprisePoliciesEnabled</key><true/>
+  <key>DisableTelemetry</key><true/>
+  <key>Proxy</key><dict>
+    <key>Mode</key><string>manual</string>
+    <key>Locked</key><true/>
+    <key>SOCKSProxy</key><string>127.0.0.1:9050</string>
+    <key>SOCKSVersion</key><integer>5</integer>
+    <key>UseProxyForDNS</key><true/>
+    <key>Passthrough</key><string>localhost, 127.0.0.1</string>
+  </dict>
+</dict></plist>
